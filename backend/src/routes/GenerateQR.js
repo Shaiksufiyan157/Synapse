@@ -25,27 +25,27 @@ router.get('/generate-qr',async (req,res)=>{
   //     student.qrCodeString = uploadResponse.secure_url;
   //   await student.save()
   //   res.send("added")
-  try{
-    const AllFaculty =await Faculty.find({})
-      for(const faculty of AllFaculty){
-    const url = `http://smart-campus-control.vercel.app/faculty/${faculty.facultyId}`;
-    const qrCodeDataUrl = await QRCode.toDataURL(url);
-    const base64Str = qrCodeDataUrl.replace(/^data:image\/png;base64,/, "");
-    const uploadResponse = await cloudinary.uploader.upload(`data:image/png;base64,${base64Str}`, {
-      folder: 'faculty_qrcodes',
-      public_id: faculty.facultyId, // optional: name the file with faculty ID
-      overwrite: true
-    });
-    // Save the Cloudinary URL in faculty_qr field
-    faculty.faculty_qr = uploadResponse.secure_url;
-    await faculty.save();
-    console.log(`QR code generated and saved for faculty ID: ${faculty.facultyId}`);
-  }
-  console.log('QR code generation completed for all faculty members.');
-  res.json({AllFaculty});
-  }  catch (error) {
-    res.status(500).send('Error generating QR code');
-  }
+  // try{
+  //   const AllFaculty =await Faculty.find({})
+  //     for(const faculty of AllFaculty){
+  //   const url = `http://smart-campus-control.vercel.app/faculty/${faculty.facultyId}`;
+  //   const qrCodeDataUrl = await QRCode.toDataURL(url);
+  //   const base64Str = qrCodeDataUrl.replace(/^data:image\/png;base64,/, "");
+  //   const uploadResponse = await cloudinary.uploader.upload(`data:image/png;base64,${base64Str}`, {
+  //     folder: 'faculty_qrcodes',
+  //     public_id: faculty.facultyId, // optional: name the file with faculty ID
+  //     overwrite: true
+  //   });
+  //   // Save the Cloudinary URL in faculty_qr field
+  //   faculty.faculty_qr = uploadResponse.secure_url;
+  //   await faculty.save();
+  //   console.log(`QR code generated and saved for faculty ID: ${faculty.facultyId}`);
+  // }
+  // console.log('QR code generation completed for all faculty members.');
+  // res.json({AllFaculty});
+  // }  catch (error) {
+  //   res.status(500).send('Error generating QR code');
+  // }
   // res.send('QR code generation script executed. Check server logs for details.');
 })
 // .get(addResult)

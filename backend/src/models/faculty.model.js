@@ -31,6 +31,7 @@ const FacultySchema = new Schema({
     paper_published: [{
         url: String,
         filename:String
+        
     }],
     faculty_qr:String
 });

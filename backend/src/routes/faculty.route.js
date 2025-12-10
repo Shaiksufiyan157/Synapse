@@ -5,52 +5,59 @@ import path from "path"
 // import FacultyData from '../seed/FacultyData.js';
 import { v2 as cloudinary } from 'cloudinary';
 const router = express.Router();
-const myLocalFile = 'C:/Users/shaik/Desktop/smart campus control/backend/src/seed/2502.06329v1.pdf';
+const myLocalFile = 'C:/Users/shaik/Desktop/smart campus control/backend/src/seed/07845335.pdf';
 router.get('/faculty', middleware.isLoggedIn, async (req, res) => {
     // res.send('Faculty Details Page - Under Construction');
-    try{
-    const faculties = await Faculty.find({});
+    try {
+        const faculty = await Faculty.findOne({ facultyId: 'CSE009' });
+        const faculties = await Faculty.find({});
         // res.status(201).json({ message: 'Faculty data reset successfully.' ,
         //     data: faculties
         // });
         // res.json(faculties)
         // for(const faculty of faculties){
-        //     const publicId = path.parse(myLocalFile).name;
-        //         const uploadedFile = await cloudinary.uploader.upload(myLocalFile, {
-        //         public_id: publicId,
-        //         overwrite: true,
-        //          });
-        //     faculty.paper_published.push({
-        //         url: uploadedFile.secure_url,
-        //         filename: uploadedFile.public_id,
-        //     });
-        //     await faculty.save();
+        // const publicId = path.parse(myLocalFile).name;
+        // const uploadedFile = await cloudinary.uploader.upload(myLocalFile, {
+        //     public_id: publicId,
+        //     overwrite: true,
+        // });
+// console.log( {url: uploadedFile.secure_url,
+//                         filename: uploadedFile.public_id,})
+
+// await faculty.paper_published.push({
+//     url:"https://res.cloudinary.com/dsmxlvm8i/image/upload/v1765345045/07845335.pdf",
+//     filename:"07845335"
+// })
+// await faculty.save()
+        
+
+        console.log(faculty);
         // }
         // console.log("Faculty data updated with paper_published field.");
-        res.render('faculty/Faculties.ejs',{faculties});
+        res.render('faculty/Faculties.ejs', { faculties });
     }
-    catch(e){
+    catch (e) {
         console.error("Error clearing faculty data:", e);
-        res.status(500).json({ 
-        message: 'Error resetting faculty data', 
-        error: e.message // Send the error message for debugging
-    });
+        res.status(500).json({
+            message: 'Error resetting faculty data',
+            error: e.message // Send the error message for debugging
+        });
     }
 
 });
 router.get('/faculty/:id', middleware.isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    try{
-    const faculty = await Faculty.findOne({facultyId: id});
-        res.render('faculty/FacultyInfo.ejs',{faculty});
+    try {
+        const faculty = await Faculty.findOne({ facultyId: id });
+        res.render('faculty/FacultyInfo.ejs', { faculty });
         // res.json(faculty);
     }
-    catch(e){
+    catch (e) {
         console.error("Error fetching faculty data:", e);
-        res.status(500).json({ 
-        message: 'Error fetching faculty data', 
-        error: e.message // Send the error message for debugging
-    });
+        res.status(500).json({
+            message: 'Error fetching faculty data',
+            error: e.message // Send the error message for debugging
+        });
     }
 });
 
@@ -66,10 +73,10 @@ router.get('/faculty/:id', middleware.isLoggedIn, async (req, res) => {
 //         req.flash('error', 'upload less than 10 mb or contact admin')
 //         res.redirect('/addpyqs')
 //     }
-    // const uploadedImage = await cloudinary.uploader.upload(req.file.path, {
-    //     public_id: originalName,
-    //     overwrite: true,
-    // });
+// const uploadedImage = await cloudinary.uploader.upload(req.file.path, {
+//     public_id: originalName,
+//     overwrite: true,
+// });
 //     Pyqs.image = {
 //         url: uploadedImage.secure_url,
 //         filename: uploadedImage.public_id,
