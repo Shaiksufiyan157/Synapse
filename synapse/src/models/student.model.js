@@ -33,7 +33,6 @@ const StudentSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-// Indexing for search efficiency
 StudentSchema.index({ usn: 1 });
 StudentSchema.index({ email: 1 });
 

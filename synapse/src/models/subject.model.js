@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const subjectSchema = new mongoose.Schema({
-  code: String,              // e.g., "CSE301"
-  name: String,              // e.g., "Operating Systems"
-  department: String,        // e.g., "CSE"
-  semester: Number,          // e.g., 5
-  category: {                // Type of subject
+  code: String,              
+  name: String,             
+  department: String,        
+  semester: Number,        
+  category: {                
     type: String,
     enum: ["CORE", "PROFESSIONAL_ELECTIVE", "OPEN_ELECTIVE"],
     required: true

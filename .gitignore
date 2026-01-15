@@ -1,42 +1,14 @@
-# ===================
-# 📁 FRONTEND IGNORE
-# ===================
-frontend/node_modules/
-frontend/dist/
-frontend/build/
-frontend/.env
-frontend/.local
-
-# Frontend Logs
-frontend/logs
-frontend/*.log
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
-frontend/pnpm-debug.log*
-frontend/lerna-debug.log*
-
-# Frontend Editor/OS Junk
-frontend/.vscode/
-!frontend/.vscode/extensions.json
-frontend/.idea/
-frontend/.DS_Store
-frontend/*.suo
-frontend/*.ntvs*
-frontend/*.njsproj
-frontend/*.sln
-frontend/*.sw?
-
-# ===================
-# 📁 BACKEND IGNORE
-# ===================
-backend/node_modules/
-backend/.env
+synapse/node_modules/
+synapse/.env
 
 # Backend Logs
-backend/logs
-backend/*.log
-backend/npm-debug.log*
+synapse/logs
+synapse/*.log
+synapse/src/seed
+synapse/src/uploads
+synapse/src/routes/GenerateQR.js
+synapse/src/routes/compress_pdf.cjs
+synapse/npm-debug.log*
 
 # ===================
 # ⚙️ GLOBAL IGNORE

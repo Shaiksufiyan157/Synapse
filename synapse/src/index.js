@@ -6,16 +6,14 @@ import SubjectRegisterRoute from './routes/SubjectRegistration.js'
 import FacultyInfoRoute from './routes/faculty.route.js'
 import GenerateQRRoute from './routes/GenerateQR.js'
 import { connectDB } from "./lib/db.js"
-import ejs from "ejs"
 import ejsMate from "ejs-mate"
 import path from "path"
-import User from "./models/user.model.js"
 import MongoDBStore from "connect-mongo"
 import session from "express-session"
 import passport from "passport"
 import LocalStrategy from "passport-local"
-import { fileURLToPath } from 'url'; // this is for --------->"type" : "module only"
-import { dirname } from "path" // this is for --------->"type" : "module only"
+import { fileURLToPath } from 'url';
+import { dirname } from "path" ;
 import cookieParser from 'cookie-parser'
 import Student from "./models/student.model.js"
 import ResourceRouter from './routes/resources.route.js'
@@ -42,14 +40,6 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// const store = MongoDBStore.create({
-//     mongoUrl: process.env.DB_URI,// this creates a session collection in mongo database
-//     touchAfter: 24 * 60 * 60,
-//     crypto: {
-//         secret: 'thisshouldbeabettersecret!'
-//     },
-//     collectionName: 'session'
-// });
 const mongoURI = process.env.DB_URI || 'mongodb://localhost:27017/mySessionsDB';
 
 // Create a MongoDB session store
@@ -68,15 +58,6 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
 }
-// app.use(session({
-//     secret: 'thisshouldbeabettersecret!',
-//     resave: false,
-//     saveUninitialized: true,
-//     store: store,
-//     cookie: {
-//         maxAge: 1000 * 60 * 60 * 24 //Equals 24 hours
-//     }
-// }))
 
 app.use(session(sessionConfig))
 app.use(flash())
@@ -129,5 +110,3 @@ try{
 }
 
 ConnectServer()
-
-// export default serverless(app);

@@ -28,7 +28,7 @@ if (user.registeredSubjects && user.registeredSubjects.length > 0) {
 }
   req.flash('success', `Welome back ${user.name}`);
   res.redirect(redirectUrl);
-// res.send("hello")
+
 };
 
 
