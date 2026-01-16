@@ -1,10 +1,7 @@
 import express from 'express';
 import Faculty from '../models/faculty.model.js';
 import middleware from '../middleware.js';
-import path from "path"
-import { v2 as cloudinary } from 'cloudinary';
 const router = express.Router();
-const myLocalFile = 'C:/Users/shaik/Desktop/smart campus control/backend/src/seed/07845335.pdf';
 router.get('/faculty', middleware.isLoggedIn, async (req, res) => {
     try {
         const faculty = await Faculty.findOne({ facultyId: 'CSE009' });

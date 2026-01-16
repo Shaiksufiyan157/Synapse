@@ -1,5 +1,5 @@
 import Result from "../models/result.model.js";
-import dummyResults from "../seed/studentdata.js";
+
 
 
 const seedResult=(req,res)=> {
