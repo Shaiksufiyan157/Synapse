@@ -1,14 +1,14 @@
-synapse/node_modules/
-synapse/.env
+node_modules/
+.env
 
 # Backend Logs
-synapse/logs
-synapse/*.log
-synapse/src/seed
-synapse/src/uploads
-synapse/src/routes/GenerateQR.js
-synapse/src/routes/compress_pdf.cjs
-synapse/npm-debug.log*
+logs
+*.log
+src/seed
+src/uploads
+src/routes/GenerateQR.js
+src/routes/compress_pdf.cjs
+npm-debug.log*
 
 # ===================
 # ⚙️ GLOBAL IGNORE
