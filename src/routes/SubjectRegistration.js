@@ -1,5 +1,4 @@
 import express from "express"
-import SubjectsData from "../seed/subjectData.js"
 import Subject from "../models/subject.model.js"
 import User from "../models/user.model.js"
 import Student from "../models/student.model.js"

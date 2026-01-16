@@ -1,7 +1,5 @@
 import StudentController from "../controllers/student.controller.js"
 import express from "express"
-import middleware from "../middleware.js"
-import passport from "passport"
 import Student from "../models/student.model.js"
 const router=express.Router()
 

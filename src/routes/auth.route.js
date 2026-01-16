@@ -1,10 +1,9 @@
 import express from "express"
 import authController from "../controllers/auth.controllers.js"
 import passport from "passport"
-import User from "../models/user.model.js"
 import middleware from "../middleware.js"
 const router = express.Router()
-import catchAsync from "../utils/cathAsync.js"
+
 
 router.route('/admin/register')
     .get(authController.rendersignup)
