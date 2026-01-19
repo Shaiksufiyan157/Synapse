@@ -1,6 +1,6 @@
 # Synapse 🎓📚
 
-A collaborative platform for college students to share, find, and access subject materials and previous year question papers. Designed to foster academic growth and peer-to-peer support, **Smart Campus Control** makes it easy for students to get the resources they need—right when they need them.
+A collaborative platform for college students to share, find, and access subject materials and previous year question papers. Designed to foster academic growth and peer-to-peer support, **Synapse** makes it easy for students to get the resources they need—right when they need them.
 
 ---
 
